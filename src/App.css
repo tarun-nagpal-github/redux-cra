@@ -1,33 +1,85 @@
 .App {
-  text-align: center;
+  width: 100vw;
+  height: 100vh;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 1rem;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.App .click-btn {
+  background: rgb(20, 23, 192);
+  border-radius: 4px;
   color: white;
+  width: 8%;
+  height: 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: rgb(201, 200, 204);
+}
+.click-btn.clicked {
+  -webkit-animation: click-animation 0.5s ease-in;
+  animation: click-animation 0.5s ease-in;
+}
+@keyframes click-animation {
+  0% {
+    background: rgb(12, 14, 110);
+    transform: scale(1.1, 1.1);
+  }
+  50% {
+    background: rgb(10, 11, 44);
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    background: rgb(20, 23, 192);
+    transform: scale(1, 1);
+  }
 }
 
-.App-link {
-  color: #61dafb;
+@-webkit-keyframes click-animation {
+  0% {
+    background: rgb(12, 14, 110);
+    transform: scale(1.2, 1.2);
+  }
+  50% {
+    background: rgb(10, 11, 44);
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    background: rgb(20, 23, 192);
+    transform: scale(1, 1);
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.click-btn:hover {
+  cursor: pointer;
+}
+
+.component {
+  width: 100%;
+  height: 100%;
+}
+.component .static {
+  background: rgb(138, 219, 172);
+  border-radius: 4px;
+  color: white;
+  width: 15%;
+  height: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: rgb(12, 36, 32);
+}
+.component .toggled {
+  background: rgb(139, 44, 57);
+  border-radius: 4px;
+  color: white;
+  width: 15%;
+  height: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: rgb(201, 200, 204);
 }

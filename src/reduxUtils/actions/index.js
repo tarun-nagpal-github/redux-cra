@@ -1,3 +1,3 @@
-import { createAction } from "redux-actions";
-
-export const exampleAction = createAction("EXAMPLE_ACTION");
+export function toggleComponent() {
+  return { type: "TOGGLE" };
+}

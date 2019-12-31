@@ -1,13 +1,12 @@
 const INITIAL_STATE = {
-  exampleProperty: null
+  showComponent: false
 };
 
 const exampleReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "EXAMPLE_ACTION":
+    case "TOGGLE":
       return {
-        ...state,
-        exampleProperty: action.payload
+        showComponent: !state.showComponent
       };
     default:
       return state;

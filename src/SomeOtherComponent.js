@@ -3,10 +3,15 @@ import { connect } from "react-redux";
 
 class SomeOtherComponent extends Component {
   render() {
+    let otherComponent = this.props.showComponent ? (
+      <div className="toggled">Toggled Component</div>
+    ) : (
+      <></>
+    );
     return (
-      <div className="App">
-        <div className="btn">SomeOtherComponent</div>
-        <div className="btn">{this.props.exampleProperty}</div>
+      <div className="component">
+        <div className="static"> Static Component</div>
+        {otherComponent}
       </div>
     );
   }
@@ -14,7 +19,7 @@ class SomeOtherComponent extends Component {
 
 const mapStateToProps = state => {
   return {
-    exampleProperty: state.example.exampleProperty
+    showComponent: state.example.showComponent
   };
 };
 

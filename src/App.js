@@ -1,18 +1,29 @@
 import React, { Component } from "react";
 import "./App.css";
 import { connect } from "react-redux";
-import { exampleAction } from "./reduxUtils/actions";
+import { toggleComponent } from "./reduxUtils/actions";
 import SomeOtherComponent from "./SomeOtherComponent";
 
 class App extends Component {
+  state = {
+    isButtonClicked: false
+  };
+  handleClick = () => {
+    this.setState({
+      isButtonClicked: !this.state.isButtonClicked
+    });
+    this.props.toggleComponent();
+  };
   render() {
     return (
       <div className="App">
         <div
-          className="btn"
-          onClick={() => this.props.exampleAction("example payload")}
+          className={
+            this.state.isButtonClicked ? "click-btn clicked" : "click-btn"
+          }
+          onClick={this.handleClick}
         >
-          click me
+          Click me
         </div>
         <SomeOtherComponent />
       </div>
@@ -20,7 +31,7 @@ class App extends Component {
   }
 }
 const mapDispatchToProps = {
-  exampleAction: exampleAction
+  toggleComponent: toggleComponent
 };
 export default connect(
   null,

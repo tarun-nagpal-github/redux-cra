@@ -8,6 +8,12 @@ class App extends Component {
   state = {
     isButtonClicked: false
   };
+  handleClick = () => {
+    this.setState({
+      isButtonClicked: !this.state.isButtonClicked
+    });
+    this.props.toggleComponent();
+  };
   render() {
     return (
       <div className="App">
@@ -15,12 +21,7 @@ class App extends Component {
           className={
             this.state.isButtonClicked ? "click-btn clicked" : "click-btn"
           }
-          onClick={() => {
-            this.setState({
-              isButtonClicked: !this.state.isButtonClicked
-            });
-            this.props.toggleComponent();
-          }}
+          onClick={this.handleClick}
         >
           Click me
         </div>
